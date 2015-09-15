@@ -1,0 +1,80 @@
+{
+	"manifest": "1",
+	"version": "1.0.0",
+	"elements": [{
+		"name": "Price Chart",
+		"path": "files",
+		"version": "1.0.0",
+		"settings": {
+			"config": {
+				"autopop": false
+			},
+			"properties": [{
+				"name": "table",
+				"label": "Table",
+				"type": "group",
+				"properties": [{
+					"name": "columns",
+					"label": "Number of plans",
+					"type": "int",
+					"default": 3,
+					"min": 1
+				},
+				{
+					"name": "rows",
+					"label": "Metrics per plan",
+					"type": "int",
+					"default": 3,
+					"min": 1			
+				}]
+			},
+			{
+				"name": "colors",
+				"label": "Colors",
+				"type": "group",
+				"properties": [{
+					"name": "backgroundColor",
+					"label": "Background color",
+					"type": "color",
+					"default": "#FFFFFF"
+				},
+				{
+					"name": "altColor",
+					"label": "Alternate color",
+					"type": "color",
+					"default": "#F8F8F8"
+				},
+				{
+					"name": "borderColor",
+					"label": "Border color",
+					"type": "color",
+					"default": "#C9CDCF"
+				}]
+			},
+			{
+				"name": "display",
+				"label": "Display",
+				"type": "group",
+				"properties": [{
+					"name": "prefix",
+					"label": "Pricing prefix",
+					"type": "string",
+					"default": ""
+				},
+				{
+					"name": "location",
+					"label": "Button location",
+					"type": "select",
+					"values": ["Middle", "Bottom"],
+					"default": "Bottom"
+				},
+				{
+					"name": "alignment",
+					"label": "Alignment",
+					"type": "align",
+					"default": "center"
+				}]
+			}]
+		}
+	}]
+}
