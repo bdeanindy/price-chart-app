@@ -1,4 +1,4 @@
-# Price chart
+# Price Chart
 Organize your pricing plans in a customizable price chart
 
 Are you selling a service with multiple pricing plans? Want potential clients to be able to clearly and efficiently see your pricing at a glance? Then you’ll want to add the Price Chart app to neatly display your different pricing plans to your potential customers. 
