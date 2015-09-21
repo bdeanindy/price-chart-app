@@ -30,20 +30,21 @@
 			div.paragraph {
 				text-align: @alignment !important;
 				width: 90%;
-				margin-left: 5%;
+				margin: 0 5%;
 				padding-bottom: 10px;
 				padding-top: 10px;
+
 			}
 		}
 
 		/* defining the width */
 		& td.cell {
-			width: (100% * (1 / @columns));
+			width: (100% * (1 / @plans));
 		}
 
 		/* heading styles */
 		& tr:first-child td {
-			background-color: @altColor;
+			background-color: @titleColor;
 
 			.paragraph {
 				font-weight: 700;
@@ -66,14 +67,15 @@
 			div.paragraph {
 				font-weight: 700;
 				font-size: 300%;
-				padding-bottom: 0;
+				padding: 0 auto;
+				color: @numberColor;
 
-				/* if the user has defined a specific price prefix, that gets applied here 
+				/* if the user has defined a specific price prefix/currency, that gets applied here 
 				 * if they haven't defined one, then the before doesn't exist, because that messes up
 				 * caret positioning for an empty paragraph */
-				.prefix() when not (@prefix = "") {
+				.prefix() when not (@currency = "") {
 					&:not(:empty)::before {
-						content: @prefix;
+						content: @currency;
 						font-size: 50%;
 						vertical-align: super;
 					}
@@ -103,7 +105,7 @@
 			}
 		}
 
-		&.buttonLocation-Middle {
+		&.buttonLocation-Top {
 			/* since the buttons on the bottom have a row, our usual fenceposting for borders won't work.
 			   the hack is to say that the table itself doesn't have a border-bottom, so the cell's border
 			   will make it look like it does */
