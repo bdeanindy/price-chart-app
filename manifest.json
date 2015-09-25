@@ -1,95 +1,108 @@
 {
-	"manifest": "1",
-	"version": "1.1.0",
-	"elements": [{
-		"name": "Price Chart",
-		"path": "files",
-		"version": "1.1.0",
-		"settings": {
-			"config": {
-				"autopop": false
-			},
-			"properties": [{
-				"name": "settings",
-				"label": "Settings",
-				"type": "group",
-				"properties": [{
-					"name": "plans",
-					"label": "Plans",
-					"type": "int",
-					"default": 3,
-					"step": 1,
-					"min": 1
-				},
-				{
-					"name": "features",
-					"label": "Features",
-					"type": "int",
-					"default": 3,
-					"step": 1,
-					"min": 1	
-				},
-				{
-					"name": "location",
-					"label": "Sign Up Button",
-					"type": "select",
-					"values": ["Top", "Bottom"],
-					"default": "Top"
-				},
-				{
-					"name": "alignment",
-					"label": "Align",
-					"type": "align",
-					"default": "center"
-				}]
-			},
-			{
-				"name": "advanced",
-				"label": "Advanced",
-				"type": "group",
-				"properties": [{
-					"name": "currency",
-					"label": "Currency",
-					"type": "select",
-					"values": [{
-						"name": "USD ($)",
-						"value": "$"
-					},
-					{
-						"name": "EUR (€)",
-						"value": "€"
-					},
-					{
-						"name": "GBP (£)",
-						"value": "£"
-					}],
-					"default": "$"
-				},
-				{
-					"name": "titleColor",
-					"label": "Title Background",
-					"type": "color",
-					"default": "#F8F8F8"
-				},
-				{
-					"name": "backgroundColor",
-					"label": "Content Background",
-					"type": "color",
-					"default": "#FFFFFF"
-				},
-				{
-					"name": "numberColor",
-					"label": "Number",
-					"type": "color",
-					"default": "#222222"
-				},
-				{
-					"name": "borderColor",
-					"label": "Border Color",
-					"type": "color",
-					"default": "#C9CDCF"
-				}]
-			}]
-		}
-	}]
+  "manifest": "1",
+  "version": "1.1.0",
+  "elements": [
+    {
+      "name": "Price Chart",
+      "path": "files",
+      "version": "1.1.0",
+      "settings": {
+        "config": {
+          "autopop": false
+        },
+        "properties": [
+          {
+            "name": "settings",
+            "label": "Settings",
+            "type": "group",
+            "properties": [
+              {
+                "name": "plans",
+                "label": "Plans",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1
+              },
+              {
+                "name": "features",
+                "label": "Features",
+                "type": "int",
+                "default": 3,
+                "step": 1,
+                "min": 1
+              },
+              {
+                "name": "location",
+                "label": "Sign Up Button",
+                "type": "select",
+                "values": [
+                  "Top",
+                  "Bottom"
+                ],
+                "default": "Top"
+              },
+              {
+                "name": "alignment",
+                "label": "Align",
+                "type": "align",
+                "default": "center"
+              }
+            ]
+          },
+          {
+            "name": "advanced",
+            "label": "Advanced",
+            "type": "group",
+            "properties": [
+              {
+                "name": "currency",
+                "label": "Currency",
+                "type": "select",
+                "values": [
+                  {
+                    "name": "USD ($)",
+                    "value": "$"
+                  },
+                  {
+                    "name": "EUR (€)",
+                    "value": "€"
+                  },
+                  {
+                    "name": "GBP (£)",
+                    "value": "£"
+                  }
+                ],
+                "default": "$"
+              },
+              {
+                "name": "titleColor",
+                "label": "Title Background",
+                "type": "color",
+                "default": "#F8F8F8"
+              },
+              {
+                "name": "backgroundColor",
+                "label": "Content Background",
+                "type": "color",
+                "default": "#FFFFFF"
+              },
+              {
+                "name": "numberColor",
+                "label": "Number",
+                "type": "color",
+                "default": "#222222"
+              },
+              {
+                "name": "borderColor",
+                "label": "Border Color",
+                "type": "color",
+                "default": "#C9CDCF"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
 }

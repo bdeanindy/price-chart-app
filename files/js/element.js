@@ -6,9 +6,9 @@
  */
 
 (function() {
-	var PricingTable = PlatformElement.extend({
-		initialize: function() { }
-	});
+    var PricingTable = PlatformElement.extend({
+        initialize: function() { }
+    });
 
-	return PricingTable;
+    return PricingTable;
 })();
