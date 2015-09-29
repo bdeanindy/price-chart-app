@@ -62,18 +62,18 @@
                 "values": [
                   {
                     "name": "USD ($)",
-                    "value": "$"
+                    "value": "'$'"
                   },
                   {
                     "name": "EUR (€)",
-                    "value": "€"
+                    "value": "'€'"
                   },
                   {
                     "name": "GBP (£)",
-                    "value": "£"
+                    "value": "'£'"
                   }
                 ],
-                "default": "$"
+                "default": "'$'"
               },
               {
                 "name": "titleColor",
