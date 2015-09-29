@@ -1,6 +1,6 @@
 {{! template for the pricing table.}}
-<div class="pricing-table-wrapper">
-    <table class="pricing-table {{theme}} buttonLocation-{{location}}">
+<div class="price-chart-wrapper">
+    <table class="price-chart {{theme}} buttonLocation-{{location}}">
         <tr class="name">
             {{#plans_each}}
                 <td class="cell">{name_{{plans_index}}:text default="Name #{{plans_index}}"}</td>

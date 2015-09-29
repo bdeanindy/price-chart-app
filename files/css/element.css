@@ -1,11 +1,11 @@
-/* element.css for the Pricing Table element. 
- * this takes a lot of stuff from the basic table's stylesheet, as it's used as a base for the Pricing Table */
+/* element.css for the Price Chart element. 
+ * this takes a lot of stuff from the basic table's stylesheet, as it's used as a base for the Price Chart */
 
-.pricing-table-wrapper {
+.price-chart-wrapper {
     margin: 20px auto;
 }
 
-.pricing-table {
+.price-chart {
     @border: 1px solid @borderColor;
 
     width: 100%;
