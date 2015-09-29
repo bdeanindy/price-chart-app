@@ -28,7 +28,7 @@
 
             /* .paragraphs are the actual editable content */
             div.paragraph {
-                text-align: @alignment !important;
+                text-align: @alignment;
                 width: 90%;
                 margin: 0 5%;
                 padding-bottom: 10px;
@@ -95,7 +95,7 @@
     .buttons() {
         .buttons-bottom, .buttons-middle {
             .element, .cell > div {
-                text-align: @alignment !important;
+                text-align: @alignment;
             }
         }
 
