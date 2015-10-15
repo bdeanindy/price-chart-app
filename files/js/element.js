@@ -13,21 +13,33 @@
                 this.fixStyles();
             }.bind(this));
 
+            this.normalizeAfterPlaceholders();
             this.fixStyles();
         },
 
-        /**
-         * Lots of styles are applied by default to editable areas of
-         * the editor. To make the element looks how you want, some styles
-         * need to be overwritten.
-         */
-        fixStyles: function() {
-            this.$('.editable-text').each(function(index, value) {
-                $(value).attr('style', '');
+        normalizeAfterPlaceholders: function() {
+            this.placeholderInterval = setInterval(function() {
+                if (this.$('.platform-element-child-placeholder').length == 0) {
+                    // first off, stop listening
+                    clearInterval(this.placeholderInterval);
+                    this.fixStyles();
+                }
+            }.bind(this), 100); 
+        },
+
+        // normalizes the style of the passed element.
+        fixStyles: function($element) {
+            this.$('li.wsite-text').each(function(index, value) {
+                var $value = $(value);
+                var defaultText = $value.data('default-text');
+                var $el = $(value).find('.editable-text');
+                if ($el.text() === defaultText) {
+                    $el.attr('style', '');
+                }
             });
 
-            this.$('.element').each(function(index, value) {
-                $(value).attr('style', '');
+            this.$el.find('.element').each(function(index) {
+                $(this).attr('style', '');
             });
         }
     });
