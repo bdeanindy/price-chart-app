@@ -71,6 +71,94 @@
                   {
                     "name": "GBP (£)",
                     "value": "'£'"
+                  },
+                  {
+                    "name": "JPY (¥)",
+                    "value": "'¥'"
+                  },
+                  {
+                    "name": "AUD (A$)",
+                    "value": "'A$'"
+                  },
+                  {
+                    "name": "CAD (C$)",
+                    "value": "'C$'"
+                  },
+                  {
+                    "name": "NZD ($)",
+                    "value": "' $'"
+                  },
+                  {
+                    "name": "CHF (CHF)",
+                    "value": "'CHF'"
+                  },
+                  {
+                    "name": "HKD ($)",
+                    "value": "'  $'"
+                  },
+                  {
+                    "name": "SGD ($)",
+                    "value": "'   $'"
+                  },
+                  {
+                    "name": "SEK (kr)",
+                    "value": "'kr'"
+                  },
+                  {
+                    "name": "DKK (kr)",
+                    "value": "' kr'"
+                  },
+                  {
+                    "name": "NOK (kr)",
+                    "value": "'  kr'"
+                  },
+                  {
+                    "name": "PLN (zŁ",
+                    "value": "'zŁ'"
+                  },
+                  {
+                    "name": "HUF (Ft)",
+                    "value": "'Ft'"
+                  },
+                  {
+                    "name": "CZK (KČ)",
+                    "value": "'KČ'"
+                  },
+                  {
+                    "name": "ILS (₪)",
+                    "value": "'₪'"
+                  },
+                  {
+                    "name": "MXN (Mex$)",
+                    "value": "'Mex$'"
+                  },
+                  {
+                    "name": "MYR (MYR)",
+                    "value": "'MYR'"
+                  },
+                  {
+                    "name": "BRL (R$)",
+                    "value": "'R$'"
+                  },
+                  {
+                    "name": "PHP (₱)",
+                    "value": "'₱'"
+                  },
+                  {
+                    "name": "RUB (₽)",
+                    "value": "'₽'"
+                  },
+                  {
+                    "name": "THB (฿)",
+                    "value": "'฿'"
+                  },
+                  {
+                    "name": "TRY (TL)",
+                    "value": "'TL'"
+                  },
+                  {
+                    "name": "TWD (NT$)",
+                    "value": "'NT$'"
                   }
                 ],
                 "default": "'$'"
