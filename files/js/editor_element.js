@@ -9,8 +9,19 @@
     var PricingTable = PlatformElement.extend({
         initialize: function() {
             // we normalize the styles after placeholders are replaced.
-            this.fixStyles();
+            this.normalizeAfterPlaceholders();
         },
+
+        normalizeAfterPlaceholders: function() {
+            this.placeholderInterval = setInterval(function() {
+                if (this.$('.platform-element-child-placeholder').length == 0) {
+                    // first off, stop listening
+                    clearInterval(this.placeholderInterval);
+                    this.fixStyles();
+                }
+            }.bind(this), 100); 
+        },
+
         // normalizes the styles of all element children.
         fixStyles: function() {
             this.$('li.wsite-text').each(function(index, value) {
@@ -26,7 +37,6 @@
                 $(this).attr('style', '');
             });
         }
-    });
     });
 
     return PricingTable;
