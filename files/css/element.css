@@ -2,7 +2,7 @@
  * this takes a lot of stuff from the basic table's stylesheet, as it's used as a base for the Price Chart */
 
 .price-chart-wrapper {
-    margin: 20px auto;
+    padding: 20px 0;
 }
 
 .price-chart {
