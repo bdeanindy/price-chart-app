@@ -1,11 +1,11 @@
 {
   "manifest": "1",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "elements": [
     {
       "name": "Price Chart",
       "path": "files",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "settings": {
         "config": {
           "autopop": false
