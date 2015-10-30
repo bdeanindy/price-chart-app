@@ -21,7 +21,7 @@
 
         <tr class="buttons-middle">
             {{#plans_each}}
-                <td class="cell">{buttonText_middle_{{plans_index}}:button}</td>
+                <td class="cell">{buttonText_middle_{{plans_index}}:button align="center"}</td>
             {{/plans_each}}
         </tr>
 
@@ -35,7 +35,7 @@
 
         <tr class="buttons-bottom">
             {{#plans_each}}
-                <td class="cell">{buttonText_bottom_{{plans_index}}:button}</td>
+                <td class="cell">{buttonText_bottom_{{plans_index}}:button align="center"}</td>
             {{/plans_each}}
         </tr>
     </table>
