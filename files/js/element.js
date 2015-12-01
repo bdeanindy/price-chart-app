@@ -27,7 +27,6 @@
             });
         }
     });
-    });
 
     return PricingTable;
 })();
