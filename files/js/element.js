@@ -8,7 +8,6 @@
 (function() {
     var PricingTable = PlatformElement.extend({
         initialize: function() {
-            // we normalize the styles after placeholders are replaced.
             this.fixStyles();
         },
         // normalizes the styles of all element children.
