@@ -190,6 +190,32 @@
             ]
           }
         ]
+      },
+      "tutorial": {
+        "introduction": "The price chart is a simple way to visually compare different plans with their features and prices.",
+        "type": "topics",
+        "content": [
+          {
+            "label": "Setup instructions",
+            "introduction": "Follow these simple steps to help you get started!",
+            "type": "steps",
+            "content": [
+              "Choose the number of plans you would like. Each plan will add a new column to the chart.",
+              "Choose the number of features for each plan. Each feature will add a row to the chart.",
+              "Modify the currency setting to ensure the price of each plan is in the correct currency.",
+              "Fill out each plan's name, price, and list of features.",
+              "Choose where to put your sign up button. It can be place at the end of the features list or at the top with the plan's price.",
+              "Customize! You can change the background colors, border colors, and text colors of your chart."
+            ]
+          },
+          {
+            "label": "Build an online store",
+            "introduction": "View an in-depth webinar about building an online store with Weebly.",
+            "type": "video",
+            "content": "6clKBa8x1qk"
+          }
+        ],
+        "autopop": true
       }
     }
   ]
