@@ -1,11 +1,11 @@
 {
   "manifest": "1",
-  "version": "1.2.5",
+  "version": "1.2.4",
   "elements": [
     {
       "name": "Price Chart",
       "path": "files",
-      "version": "1.2.5",
+      "version": "1.2.4",
       "settings": {
         "config": {
           "autopop": false
@@ -22,7 +22,8 @@
                 "type": "int",
                 "default": 3,
                 "step": 1,
-                "min": 1
+                "min": 1,
+                "tooltip": "Select the number of plans to display"
               },
               {
                 "name": "features",
@@ -30,7 +31,8 @@
                 "type": "int",
                 "default": 3,
                 "step": 1,
-                "min": 1
+                "min": 1,
+                "tooltip": "Select the number of features for each plan"
               },
               {
                 "name": "location",
@@ -204,15 +206,14 @@
               "Choose the number of features for each plan. Each feature will add a row to the chart.",
               "Modify the currency setting to ensure the price of each plan is in the correct currency.",
               "Fill out each plan's name, price, and list of features.",
-              "Choose where to put your sign up button. It can be place at the end of the features list or at the top with the plan's price.",
-              "Customize! You can change the background colors, border colors, and text colors of your chart."
+              "Choose where to put your sign up button. It can be placed at the end of the features list or at the top with the plan's price."
             ]
           },
           {
-            "label": "Build an online store",
-            "introduction": "View an in-depth webinar about building an online store with Weebly.",
+            "label": "About Weebly",
+            "introduction": "Learn more about Weebly!",
             "type": "video",
-            "content": "6clKBa8x1qk"
+            "content": "VlURuZWSoXw"
           }
         ],
         "autopop": true
