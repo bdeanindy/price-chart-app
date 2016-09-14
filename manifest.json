@@ -1,11 +1,11 @@
 {
   "manifest": "1",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "elements": [
     {
       "name": "Price Chart",
       "path": "files",
-      "version": "1.2.5",
+      "version": "1.2.6",
       "settings": {
         "config": {
           "autopop": false
@@ -194,27 +194,13 @@
         ]
       },
       "tutorial": {
-        "introduction": "The price chart is a simple way to visually compare different plans with their features and prices.",
-        "type": "topics",
+        "introduction": "The Price Chart app presents product or subscription details in an attractive, easy to read format.",
+        "type": "steps",
         "content": [
-          {
-            "label": "Setup instructions",
-            "introduction": "Follow these simple steps to help you get started!",
-            "type": "steps",
-            "content": [
-              "Choose the number of plans you would like. Each plan will add a new column to the chart.",
-              "Choose the number of features for each plan. Each feature will add a row to the chart.",
-              "Modify the currency setting to ensure the price of each plan is in the correct currency.",
-              "Fill out each plan's name, price, and list of features.",
-              "Choose where to put your sign up button. It can be placed at the end of the features list or at the top with the plan's price."
-            ]
-          },
-          {
-            "label": "About Weebly",
-            "introduction": "Learn more about Weebly!",
-            "type": "video",
-            "content": "VlURuZWSoXw"
-          }
+          "Choose the number of plans and features for each plan. These settings control how many plans are displayed side by side, and the number of features entered will apply to all plans in the app.",
+          "Select which currency you want to use. You can choose from among 25 different currencies to display your prices in, and this setting also applies to all plans within the app.",
+          "Configure the alignment, title and background colors, and button position. You can add links and adjust the spacing, text, and style for each button by clicking on it.",
+          "Customize the details for each plan. Click on the default text to select and modify it. You can change the colors using the text editing toolbar."
         ],
         "autopop": true
       }
