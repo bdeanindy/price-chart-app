@@ -1,0 +1,12 @@
+/                   # Price Chart App Root
+|
+|-- manifest.json
+|-- icon.svg
+|-- files
+    |-- css/
+        |-- element.css
+    |-- html/
+        |-- element.tpl
+    |-- js/
+        |-- element.js
+    |-- assets/

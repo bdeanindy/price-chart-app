@@ -1,0 +1,243 @@
+.chapter(data-title='Weebly - Price Chart App - Tutorial')
+  .step(data-title='Welcome!', data-file='tutorial/config.json')
+    :markdown
+      ## Welcome to the Price Chart App Tutorial 
+
+      The tutorial's navigation controls are located above this text. Use <i class="fa fa-fw fa-play"></i> to move to the next step of the tutorial. Use <i class="fa fa-fw fa-play fa-rotate-180"></i> to move to the previous step of the tutorial (if there is one). Use <i class="fa fa-fw fa-list"></i> to see an overview of all the steps in the tutorial.
+
+      In this tutorial, you'll learn about the code behind the Weebly Price Chart sample element app. How to recreate the app, package it up, and test it.
+
+      This element displays a given number of price plans, each with a given number of metrics.
+
+      You will want to download or clone the [Price Chart App Assets](https://github.com/Weebly/price-chart-app) and unzip them to a local directory for use later in the tutorial.
+
+  .step(data-title='What You Will Build', data-file='tutorial/config.json')
+    :markdown
+      ## Price Chart App
+
+      You will learn to build a Weebly app with an element that allows users to display complicated pricing plans on a page of their Weebly site.
+
+      ![Weebly Price Chart App](sh_priceChart.png)
+
+      > *NOTE:* The theme applied to the site will determine how the Price Chart displays
+
+      Before you begin:
+
+      1. Login to [Weeby Developer Admin Portal](https://www.weebly.com/developer-admin/) 
+      2. Create a new app named `{{unique_id}}-pricecharttut`, using your first initial and last name as the unique identifier (since app names must be unique). For example if you were John Doe: `jdoe-pricecharttut`
+      3. Category set to *eCommerce*
+      4. Click "Save"
+      5. Copy your API Keys (Client ID, and Secret) for later use in this tutorial
+
+  .step(data-title='App Directory Structure', data-file='tutorial/app_directory_structure.txt')
+    :markdown
+      ## Price Chart App Directory Strucure
+
+      If you've read our docs, you can see the directory structure used for the Price Chart App is different from that shown on [App Directories and Files for an Element documentation](https://dev.weebly.com/pf_apps_element_folders.html).
+
+      The reason for this is because there is only this one element in the app. If you have multiple elements as part of your app, follow the documentation above.
+
+      Here is a brief description of the structure of the Price Chart Element App root directory:
+
+      * [manifest.json](https://dev.weebly.com/pf_apps_element_manifest.html) - Defines the app using Weebly App Manifest v1
+      * [icon.svg](https://dev.weebly.com/pf_apps_element_icon_guidelines.html) - The element's icon as displayed to users in the editor tray
+      * [css directory](https://dev.weebly.com/pf_apps_element_style.html) - Styling for the app
+      * [html directory](https://dev.weebly.com/pf_apps_element_temp.html#about-templates) - Element templates
+      * [js directory](https://dev.weebly.com/pf_apps_element_js.html) - Element logic
+      * [assets directory](https://dev.weebly.com/pf_apps_element_folders.html) - Element assets such as image files
+
+  .step(data-title='Add the App Icon', data-file='tutorial/app_directory_structure.txt')
+    :markdown
+      ## Add the App Icon
+
+      If you haven't already, clone or download the [Price Chart App Assets](https://github.com/Weebly/price-chart-app) repository (into a location outside of the Price Chart App root directory):
+
+      `git clone https://github.com/Weebly/price-chart-app`
+
+      Then, copy *icon.svg* into the PriceChartApp/files directory (for example if your working directory is inside the root of Price Chart App and you cloned the Assets into a sibling of Price Chart App root directory):
+
+      `cp ../price-chart-app/files/icon.svg ./files`
+
+  .step(data-title='Manifest.json', data-file='manifest.json', data-highlight='2-4')
+    :markdown
+      ## App Manifest
+
+      The first file we'll look at is `manifest.json`. This contains high-level configuration information about your Weebly App. This JSON file contains several properties you can declare about your app, [read the full manifest.json docs here](https://dev.weebly.com/pf_apps_manifest.html).
+
+      Below are the three main properties which define the Price Chart App:
+
+      * `manifest`: The version of the Weebly Platform API your application was built to work with. The only currently supported value is 1
+      * `version`: The version of your application. Provided as a string, following [Semantic Versioning guidelines](https://semver.org/) (Major.Minor.Patch: for example 1.5.13).
+      * `elements`: Each element provided in your app is defined in the top-level manifest.json, within the elements array. Each element is a single object in the array, and specifies the name, location, and settings of the element..
+
+      Now, let's take a look a closer look at the *elements* in the price chart app.
+
+  .step(data-title='Elements', data-file='manifest.json', data-highlight='4-8')
+    :markdown
+      ## Elements
+
+      The *elements* property of the `manifest.json` file is an array of element objects, allowing developers to define one or more elements to be published as part of their app.
+      Each element object is *required* to have the following top-level properties:
+
+      * `name`:  The name of the element, this will be displayed to users
+      * `path`: Relative file path to the location of this element's asset directory from the directory of the *manifest.json*
+      * `version`: The version of this element, provided as a [Semantic Version] string (this differs from the app's version at the root of the manifest.json file)
+
+  .step(data-title='Element Settings', data-file='manifest.json', data-highlight='9-13')
+    :markdown
+      ## About Element Settings
+
+      Any element can include settings which expose configurations for each element's instance that are user-defined.
+
+      For complete infomation, read the [Create Element Settings docs](https://dev.weebly.com/pf_apps_element_settings.html).
+
+      Each element object which will expose these types of user-configurable settings is *required* to define a `settings` object with the following schema:
+
+        | Property Name | Parent                                 | Description                                                                                                                                                           | Type    | Required |
+        | ------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- |
+        | config        | settings        | Element instantiation configurations                                                                                                                                  | object  | Yes      |
+        | autopop       | settings.config | Display settings dialog immediately when instantiated?                                                                                                                | boolean | Yes      |
+        | external      | settings        | External settings content URL to load in iframe, [external settings documentation](https://dev.weebly.com/pf_apps_element_settings.html#create-external-settings)     | string  | No       |
+        | properties    | settings        | Array of setting property objects                                                                                                                                     | array   | No       |
+
+      The Price Chart App is currently configured to *not* display the settings dialog immediately when it is instantiated. This means the site administrator will have to click on the newly instantiated price chart element to open the settings dialog.
+
+  .step(data-title='Settings Group', data-file='manifest.json', data-highlight='13-54')
+    :markdown
+      ## Plan and Feature Config Settings
+
+      All settings *must* be (children) of a group, and these groups are used to create sections within the Settings dialog. Learn more about [Creating Groups](https://dev.weebly.com/pf_apps_element_settings.html#create-a-group).
+
+      The first group we’ll create will contain configuration settings allowing users to set:
+      
+      * Number of price plans and features to display
+      * Alignment and button location
+      
+  .step(data-title='Advanced Group', data-file='manifest.json', data-highlight='55-193')
+    :markdown
+      ## Currency Symbol and Colors Settings
+
+      The next group we’ll create will contain configuration settings allowing users to set:
+      
+      * Currency symbol used inthe chart 
+      * Colors used in the chart
+      
+  .step(data-title='Element Template', data-file='files/html/element.tpl')
+    :markdown
+      ## Element Template
+
+      The `element.tpl` template file defines the HTML (markup) for how the element displays in both the editor and once on a published page.
+
+      If needed, you can create a separate HTML template for the editor and the published site: `cp files/html/element.tpl files/html/editor_element.tpl` and make the changes you desire for how your element is displayed within the editor.
+
+      You can see that the element has a wrapper:
+
+      ```
+      <div class="price-chart-wrapper">
+        ...
+      </div>
+      ```
+
+      Let's take a closer look at how the UI for the Price Chart App Element is built...
+
+  .step(data-title='Template - Chart Table', data-file='files/html/element.tpl', data-highlight='3')
+    :markdown
+      ## Chart Table Template
+
+      Here we create a table to hold the chart, and set the theme color and button location based on the value of those settings.
+      
+      You access settings using mustache tags, like this: `{{setting}}`
+
+      In a later step, we’ll define CSS for the button location classes with styles for the possible alignment values. For example, we’ll style a class named 'buttons-bottom'.
+      
+  .step(data-title='Template - Column Display', data-file='files/html/element.tpl', data-highlight='4-8')
+    :markdown
+      ## Column Display Template
+
+      Now let’s add a table row for the name. First, we need to determine the number of columns to display. To do that we’ll access the plans setting to find that number and then render a column that many number of times.
+
+      When a setting’s value is an integer, you can use {{#settings_each}} to iterate over all instances and {{settings_index}} to access each individual instance. So we’ll use {{#plans_each}} to render the right number of columns, and the we’ll use {{plans_index}} to stamp out a name for each column. The name will be used for the text field.
+
+      We’ll use the text tag to create a text field with a default value. This is the syntax for the text field:
+
+      ```{<field_name>:text default="some default text to display"}```
+
+      We’ll use the index of each plan column to give each text field a unique name and default text. In other words, the name in the first column will be Name #0.
+      
+  .step(data-title='Template - Price Display', data-file='files/html/element.tpl', data-highlight='10-14')
+    :markdown
+      ## Price Display Template
+
+      Now let’s create a row for the price, repeating the loop over the plans setting. We’ll set 10 as the default value. The pricing prefix will be handled by CSS.
+
+  .step(data-title=' Template - Rate Display', data-file='files/html/element.tpl', data-highlight='16-20')
+    :markdown
+      ## Rate Display Template
+
+      This is just like Price Display, using `per unit` as the default text.
+
+  .step(data-title='Template - Button Display', data-file='files/html/element.tpl', data-highlight='22-26')
+    :markdown
+      ## Button Display Template
+
+      We need to add code for the button when the corresponding setting is set to top (we’ll have CSS determine whether to display this button or one at the bottom).
+
+      Let’s have it display right under the rate. You create a button using the `{name:button}` tag.
+
+  .step(data-title='Template - Features Display', data-file='files/html/element.tpl', data-highlight='28-34')
+    :markdown
+      ## Features Display Template
+
+      Similar to *plans* setting (which determines the number of columns), here we iterate over the features setting, and render the correct number of rows based on the value of the features setting.
+
+  .step(data-title='Template - Bottom Button Display', data-file='files/html/element.tpl', data-highlight='36-40')
+    :markdown
+      ## Bottom Button Display Template
+
+      Now let’s add the code for when the button should be on the bottom.
+
+  .step(data-title='Element Styling', data-file='files/css/element.css')
+    :markdown
+      ## Create the Styles
+
+      Weebly sites use [LESS](http://lesscss.org/), which can access the element’s settings using [LESS variables](http://lesscss.org/features/#variables-feature-overview).
+      
+      We are not going to do a lot of styling, as we want the Price Chart to inherit most of its styles from the site’s theme.
+
+      As this isn’t a tutorial for LESS or CSS, it won’t cover every selector for the price chart, but it will highllight the most interesting style rules.
+
+  .step(data-title='Currency Styling', data-file='files/css/element.css', data-highlight='63-86')
+    :markdown
+      ## Currency Styling
+
+      To access the currency, we’ll use `@currency`.
+
+      In addition to styling the currency when a price is set, we are also handling the case when a user does not enter a currency prefix.
+
+  .step(data-title='Button Styling', data-file='files/css/element.css', data-highlight='94-120')
+    :markdown
+      ## Button Styling
+
+      Remember, at the beginning of the HTML template, we defined two CSS classes based on the value of the location setting: `buttonLocation-top` and `buttonLocation-bottom`.
+
+      Here, we use CSS to toggle display of the unselected button to display.
+
+  .step(data-title='Element JavaScript', data-file='files/js/element.js')
+    :markdown
+      ## Element JavaScript
+
+      Elements can add logic using JavaScript. You can read the full documentation on how to [Add JavaScript to an Element](https://dev.weebly.com/pf_apps_element_js.html).
+
+      Our element doesn’t really require much JavaScript, except to initialize it and normalize styles that may be styled by the theme.
+
+      Let's take a closer look at the code for that...
+
+  .step(data-title='Element JavaScript', data-file='files/js/element.js')
+    :markdown
+      ## Element JavaScript
+
+      Elements can add logic using JavaScript. You can read the full documentation on how to [Add JavaScript to an Element](https://dev.weebly.com/pf_apps_element_js.html).
+
+      To add JavaScript to an element, you create a file named `element.js` in the *files/js/* directory of your element. Optionally, you can include a file named `editor_element.js` which will only operate when the element is being used in the Weebly editor.
+
+      The Price Chart Element doesn’t really require much JavaScript, except to initialize it and normalize styles that may be styled by the theme.
